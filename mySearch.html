@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>jquery搜索插件</title>
+		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript" src="js/jquery.Search.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/jquery.Search.css"/>
+		<style>
+			*{margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+		<div class="bbbb"></div>
+		<script>
+			$('.bbbb').mySearch({
+				color:"#000",
+				fix:true,
+				title:{
+				   'show':true,
+				   'content':'大众点评',
+				   'titleColor':'#f8cfa5'
+				},
+				twoPageFontColor:'red',
+				placeholder:"输入商户名、地点",
+				//可以是html
+				RecommendContent:'大家都在搜',
+				//参数为点击的列表元素
+				onRecommentListAction:function(selectKey){
+					console.log(selectKey.html());
+				},
+				onSearch:function(inputKey){
+					var objSearch = [{name:"香蕉",desc:"<500m"},{name:"鸡肉",desc:">1000m"},{name:"炸鸡",desc:"共200个结果"}];
+					return objSearch;
+				},
+				getChooseData : function()
+				{
+					var objChoose = [{name:"D香蕉",desc:"<500m"},{name:"D鸡肉",desc:">1000m"},{name:"D炸鸡",desc:"共200个结果"}];
+					return objChoose;
+				},
+				//参数为点击的列表元素
+				onAction:function(selectKey){
+					console.log(selectKey.html());
+				},
+				onSearchBtn:function(){
+					console.log('ppppppppppppppppppppppppp');
+				}
+			});
+			
+		</script>
+	</body>
+</html>
